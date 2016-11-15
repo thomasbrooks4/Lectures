@@ -25,11 +25,11 @@ sum2([], S, S).
 sum2([H|T], Sum, Acc) :- N is Acc + H, sum2(T, Sum, N).
 
 % append
-append([], L2, L2).
-append([H1|T1], L2, [H1|Result]) :- append(T1, L2, Result).
+append([], L, L).
+append([H|T], L, [H|Result]) :- append(T, L, Result).
 
 evens(List) :- evens(List, []).
 evens([], []).
 evens([H|T], [H|E]) :- H rem 2 =:= 0, evens(T, E).
-evens([H|T], E) :- evens(T, E).
+evens([_|T], E) :- evens(T, E).
 
